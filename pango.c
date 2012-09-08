@@ -2,6 +2,7 @@
 
 void
 pango_render_string (cairo_t *cairo,
+                     int x, int y,
                      const char *font,
                      unsigned int size,
                      const char *string)
@@ -10,6 +11,8 @@ pango_render_string (cairo_t *cairo,
   PangoFontDescription *fontDescription;
 
   layout = pango_cairo_create_layout (cairo);
+
+  cairo_move_to (cairo, x, y);
 
   fontDescription = pango_font_description_new ();
   pango_font_description_set_family (fontDescription, font);

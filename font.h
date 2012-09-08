@@ -6,6 +6,7 @@
 
 void
 pango_render_string (cairo_t *cairo,
+                     int x, int y,
                      const char *font,
                      unsigned int size,
                      const char *string);

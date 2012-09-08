@@ -3,7 +3,7 @@
 
 #include "font.h"
 
-const char *testString = "db qp - The quick brown fox jumped over the lazy dog. Sniffle AWAY";
+#define testString "db qp - The quick brown fox jumped over the lazy dog. Sniffle AWAY"
 
 int
 main (int argc, char **argv)
@@ -20,9 +20,8 @@ main (int argc, char **argv)
 
   cairo_set_source_rgba (cairo, 0.0f, 0.0f, 0.0f, 1.0f);
 
-  pango_render_string (cairo, "Source Sans Pro", 10, testString);
-
-  freetype_render_string (cairo, 0, 30, "Source Sans Pro", 13, testString, 1.0);
+  pango_render_string (cairo, 0, 0, "Droid", 8, testString " (Pango)");
+  freetype_render_string (cairo, 0, 30, "Droid Sans", 11, testString " (FreeType)", 1.0);
 
   cairo_surface_write_to_png (surface, "output.png");
 

@@ -312,6 +312,8 @@ freetype_render_string (cairo_t *cairo,
   if (0 != (status = FT_Init_FreeType (&ft_library)))
     errx (EXIT_FAILURE, "Failed to initialize FreeType with status %d", status);
 
+  cairo_move_to (cairo, 0, 0);
+
   fontData = FONT_Load (font, size);
 
   pen.x = x << 6;
