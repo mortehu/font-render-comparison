@@ -350,9 +350,7 @@ freetype_render_string (cairo_t *cairo,
           break;
         }
 
-      pen.x = (pen.x + 31) & ~63;
-
-      if (!(glyph = font_FreeTypeGlyphForCharacter (fontData, *string, &previous, &face, &pen, 0)))
+      if (!(glyph = font_FreeTypeGlyphForCharacter (fontData, *string, &previous, &face, &pen, FT_LOAD_NO_HINTING)))
         errx (EXIT_FAILURE, "Failed to get glyph for character %d", *string);
 
       pen.x += glyph->advance.x;
